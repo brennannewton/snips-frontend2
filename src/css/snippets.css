@@ -1,0 +1,35 @@
+#snippets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.snip {
+  width: 85%;
+  max-width: 500px;
+  margin: 1rem 0;
+  border: 2px solid #cbcec6;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.snip .text {
+  padding: 1rem;
+  padding-bottom: 0;
+}
+
+.snip h2 {
+  margin-bottom: 0.5rem;
+}
+
+.snip p {
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.snip pre code {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

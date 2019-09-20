@@ -1,0 +1,111 @@
+#create-snip {
+  display: flex;
+  width: 85%;
+  max-width: 500px;
+  flex-direction: row;
+  flex-flow: wrap;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: white;
+  border-radius: var(--border-radius-px);
+
+  --border-radius-px: 10px;
+}
+
+#create-snip label {
+  font-family: "Montserrat", sans-serif;
+}
+
+#create-snip input {
+  width: 45%;
+  margin-left: 1rem;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--snips-white);
+  padding: 0.2rem;
+}
+
+#create-snip select {
+  width: 44%;
+  margin-left: 1rem;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--snips-white);
+}
+
+#create-snip textarea {
+  width: 92%;
+  margin-left: 1rem;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--snips-white);
+  padding: 0.2rem;
+  height: 50px;
+}
+
+#create-snip button {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 0px 0px 10px 10px;
+  background-color: var(--snips-black);
+  color: var(--snips-white);
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+
+  transition: all 250ms;
+}
+
+#create-snip button:hover {
+  background-color: var(--snips-orange);
+}
+
+#form-title {
+  width: 100%;
+  background-color: var(--snips-black);
+  color: var(--snips-white);
+  padding: 1rem;
+  border-radius: 10px 10px 0px 0px;
+  font-size: 1.1rem;
+}
+
+#title-label {
+  width: 45%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+
+#language-label {
+  width: 45%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+
+#description-label {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+
+#code-label {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+}
+
+#title {
+  height: 20px;
+}
+
+#language {
+  height: 20px;
+}
+
+#code {
+  margin-bottom: 1rem;
+}
