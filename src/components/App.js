@@ -1,3 +1,5 @@
+/* eslint-disable dot-notation */
+
 import React from 'react';
 import './App.css';
 import '../css/style.css';
@@ -7,6 +9,8 @@ import SnipList from './SnipList';
 import SearchBar from './SearchBar';
 import CreateSnip from './CreateSnip';
 import Home from './Home';
+import Signup from './Signup';
+import Login from './Login';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +21,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
+    this.setToken();
     const { data } = await axios.get('http://localhost:5000/api/snippets');
     this.setState({
       snippets: data,
@@ -50,6 +55,26 @@ class App extends React.Component {
     this.setState({ snippets: snips });
   };
 
+  registerUser = async userData => {
+    const newUser = await axios.post(
+      'http://localhost:5000/api/signup',
+      userData
+    );
+    console.log(newUser);
+  };
+
+  logIn = async data => {
+    const res = await axios.post('http://localhost:5000/api/login', data);
+    localStorage.setItem('app-token', res.data.token);
+    this.setToken(res.data.token);
+  };
+
+  setToken = (token = null) => {
+    let tempToken = token;
+    if (tempToken !== null) tempToken = localStorage.getItem('app-token');
+    axios.defaults.headers.common['Authorization'] = `Bearer ${tempToken}`;
+  };
+
   render() {
     return (
       <Router>
@@ -68,6 +93,12 @@ class App extends React.Component {
               <li>
                 <Link to="account">Account</Link>
               </li>
+              <li>
+                <Link to="signup">Signup</Link>
+              </li>
+              <li>
+                <Link to="login">Login</Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -85,6 +116,11 @@ class App extends React.Component {
             )}
           />
           <Route path="/account" render={() => 'Account'} />
+          <Route
+            path="/signup"
+            render={() => <Signup onRegister={this.registerUser} />}
+          />
+          <Route path="/login" render={() => <Login onLogin={this.logIn} />} />
           <Route render={() => <h1>404</h1>} />
         </Switch>
       </Router>
